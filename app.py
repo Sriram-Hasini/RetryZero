@@ -550,29 +550,6 @@ async def get_advice(incident: str = Form(...)):
             error_html
         )
 
-
-    except Exception as error:
-
-        error_html = f"""
-
-        <div class="error-message">
-
-            <strong>RetryZero encountered an error.</strong>
-
-            <br><br>
-
-            {escape(str(error))}
-
-        </div>
-
-        """
-
-        return HTML_PAGE.replace(
-            "{RESULT}",
-            error_html
-        )
-
-
 @app.post("/outcome", response_class=HTMLResponse)
 async def record_outcome(
     incident: str = Form(...),
